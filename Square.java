@@ -1,9 +1,6 @@
-
- package board;
+package board;
 
 import pieces.Piece;
-
-import javax.swing.*;
 
 public class Square {
 
@@ -11,12 +8,14 @@ public class Square {
     private String column;
     boolean isAtSameColumn = false;
     boolean isNeighborColumn = false;
-    private Piece Piece;
+    private Piece piece;
 
 
-    public Square (int row,String column){
+
+    public Square (int row,String column, Piece piece){
         this.row = row;
         this.column = column;
+        this.piece = piece;
 
 
 
@@ -30,6 +29,16 @@ public class Square {
             return false;
         }
     }
+
+    public boolean isAtSameRow(Square targetLocation){
+        if(this.row == targetLocation.row){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 
 
 
@@ -283,11 +292,64 @@ return null;
 
 
     public Piece getPiece() {
-        return Piece;
+        return piece;
     }
 
 
     public boolean isEmpty() {
+        if(this.piece == null){
+            return true;
+        }
+        return false;
 
     }
+
+    public boolean isAtLastRow(int color){
+        if(color == 1 && this.row == 1){
+            return true;
+        }
+        else if(color == 0 && this.row == 8){
+            return true;
+        }
+        return false;
+    }
+
+    public int converter(){
+        if(this.column.equals("A")){
+            return 1;
+        }
+        else if(this.column.equals("B")){
+            return 2;
+        }
+        else if(this.column.equals("C")){
+            return 3;
+        }
+        else if(this.column.equals("D")) {
+            return 4;
+        }
+        else if(this.column.equals("E")) {
+            return 5;
+        }
+        else if(this.column.equals("F")) {
+            return 6;
+        }
+        else if(this.column.equals("G")) {
+            return 7;
+        }
+        else if(this.column.equals("H")){
+            return 8;
+        }
+        else{
+            return 0;
+        }
+
+    }
+
 }
+
+
+
+
+
+
+
