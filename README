@@ -1,0 +1,261 @@
+## EXPLANATION OF THE CHESS CONSOLE GAME
+
+At first, an empty string is used for the empty tiles that the pieces will be settled in, then it is used with a for loop as space between the letters which are assigned to the columns. Later on, “-” is used in for loops to separate the rows on the chess board. The symbol “|” also is used in for loops to separate the columns. And there are some if-else statements that are supposed to be used for replacing the representative letters which are the upper ones to “WHITE” color and the lower ones to “BLACK” color being used pertaining to each one of the pieces. These representative letters come from a String type array. One of the challenges was the discord of the column letters and number’s alignment with the “|” and “-” symbols. To solve this problem, making some spaces in these strings was needed. Also it was a problem when it comes to the settlement of the piece representative letters onto the chess board. Thus, making the proper spaces in the Strings  and the accordance to each other of the letters were required. 
+
+ 
+
+Each one of the 64 squares is created in the ChessBoard class. These consist of integer row, String column and Piece’s subclasses (such as Pawn, Rook, Bishop etc.) parameters which are possessed to the Square class. These exist as two-dimensional arrays, in the constructor of the Chess Board.  
+
+ 
+
+ 
+
+C)There are several methods to be used in the Square and Board classes. 
+
+1)public boolean isAtSameRow (Square targetLocation) 
+
+It checks a Square object’s location which is supposed to be compared with a targetLocation if they are in the same row or not. 
+
+targetLocation : a Square object will be checked, which includes  an integer row, a String column, and a Piece type piece variable. 
+
+If the location’s row is equal to the targetLocation’s row, then it returns true; otherwise it returns false. 
+
+If the piece is able to move on the row line. It will check the targetLocation’s square if its row is the same or not. In the case that it is the same, it will go on. 
+
+2)public boolean isAtSameColumn(Square targetLocation) 
+
+It checks a Square object’s location which is supposed to be compared with a targetLocation if they are in the same column or not. 
+
+targetLocation : a Square object will be checked, which includes  an integer row, a String column, and a Piece type piece variable. 
+
+If the location’s column is equal to the targetLocation’s column, then it returns true; otherwise it returns false. 
+
+If the piece is able to move on the column line, it will check the targetLocation’s square if its column is the same or not. In the case that it is the same, it will go on. 
+
+ 
+
+ 
+
+ 
+
+ 
+
+3)public int getRowDistance(Square targetLocation) 
+
+It returns the distance as an integer between the location’s row number and the targetLocation’s owns. 
+
+targetLocation : a Square object will be checked, which includes  an integer row, a String column, and a Piece type piece variable. 
+
+It returns the integer value that is between the location’s and targetLocation’s rows. 
+
+It is implemented for the pieces those have the ability of movement on a vertical line. After getting this distance, it is ready for checking the movement ability depending on the distance’s value. 
+
+4)public int getColumnDistance(Square targetLocation) 
+
+It returns the distance as an integer between the location’s column number and the targetLocation’s owns. 
+
+targetLocation : a Square object will be checked, which includes  an integer row, a String column, and a Piece type piece variable. 
+
+It returns the integer value that is between the location’s and targetLocation’s columns. 
+
+It is implemented for the pieces those have the ability of movement on a horizontal line. After getting this distance, it is ready for checking the movement ability depending on the distance’s value. 
+
+5)public boolean isNeighborColumn(Square targetLocation) 
+
+It checks the location’s column and the targetLocation’s column if both columns are neighbor to each other or not.  
+
+targetLocation : a Square object will be checked, which includes  an integer row, a String column, and a Piece type piece variable. 
+
+If the location’s column is neighbor to the targetLocation’s column, then it returns true; otherwise it returns false. 
+
+This is may used for the pieces that will be moved on a diagonal line. After checking this piece, it checks if these columns are neighbors, in that case, this piece becomes able to move. 
+
+6)public boolean isEmpty() 
+
+It checks if the square is empty or not, meanly there is a piece standing on the square or not.  
+
+It has no parameter. 
+
+If the piece is null in this square, it returns true, otherwise it returns false. 
+
+If the piece is to move another square, then it checks if that square is empty. In that case, the piece can be able to move. 
+
+ 
+
+ 
+
+ 
+
+7)public boolean isAtLastRow(int color) 
+
+It checks if the pawn is at the last row, to promote to the queen. 
+
+Int color: to check if the piece’s color’s enemy. 
+
+If the piece is white and at the last row on the other side, then it returns true; else if the piece is black and at the last row on the other side it also returns true; otherwise It returns false. 
+
+Under the condition that if the piece is pawn, this is checked if it is at the last row, in that case, it can be able to promote to a queen. 
+
+8)public int converterToInt() 
+
+It converts the column letter to an integer value to use in the other methods. 
+
+It has no parameter. 
+
+It returns the integer value for each one of the letters that are assigned to the columns. 
+
+At first, if the column’s letter is “A” then it returns this string value to an integer value as 1. if the letter is B, then it returns it to 2, if it is “C” it returns 3, this is completed for all the letters which are included on the chess board. 
+
+9)public boolean isWhitePlaying() 
+
+It checks if the game turn is white’s or black’s. 
+
+It has no parameter. 
+
+It returns the turn variable which exists in the ChessBoard class as a boolean. 
+
+While it is true, it is being used to determine the next player. 
+
+10)public void nextPlayer() 
+
+It is used to change the turn of the game.  
+
+It has no parameter. 
+
+Since it is a void method, it returns nothing. 
+
+It gets the turn variable, when it is turn, meanly when it is the turn for white’s, it changes it to false for black’s.  
+
+11)public Square[] getSquareBetween (Square location, Square targetLocation, int color, String rank) 
+
+It is used to determine and get the squares for a piece that is about to move, and this is used if the squares are at the same column, row or diagonal line. 
+
+Location: the square which is the piece is at. ; targetLocation : the square which is the piece is about to move to. ; int color : the color value of the piece. ; String rank : the rank of the piece. 
+
+It returns the array of the squares that is possible to move for that piece. 
+
+At the beginning, It controls the rank of the piece, because the square lines can be varied depending on the rank of the piece, and their abilities to move. If the rank is pawn, it gets the destination of the pawn and then creates an array for this, if the rank is rook, it also creates an array that depends on the movement ability of rook piece, it controls this and then creates arrays for all the pieces. 
+
+12)public String converterToStr(int column) 
+
+It is being used for reconverting the column numbers which are turned into integers from Strings. 
+
+Int column: the converted column number. 
+
+It returns the column numbers to their equivalents as String letters.  
+
+Firstly, it checks from lower to upper. If the number is one, then it is returned that number to the “A” letter, if the number is two, it does that by returning it to “B” letter. All these letters A-H are returned like this way. 
+
+13)public Square getSquareAt(String destination) 
+
+This method determines and gets the square that the piece will be moved there. 
+
+Location: the string assignment of the square which is the piece is about to move to.  
+
+It returns an individual square in a for loop, otherwise it returns null 
+
+At first, it creates an empty string for the squares to settle the pieces in them, after that, with for loops, it checks all the squares when their columns and rows are gotten, are they equal to the column and row variables. 
+
+14)public Piece getPieceAt(String location) 
+
+This method is used to get the piece which will be used to move another square. 
+
+Location: the string assignment of the square which is the piece is at. 
+
+It returns the piece accessor method from Square class. 
+
+At the beginning, as in the getSquareAt method, it creates an empty string for the squares, and later, it checks these squares when their columns and rows are gotten, if they are equal to the column and row variables. After that, it returns the getPiece method to access to the piece to move it. 
+
+15)public void setPieceAt(Square targetLocation, Piece piece) 
+
+This method is using for setting a piece in a new square, actually. 
+
+Square targetLocation : the location that the piece will be set in. ; Piece piece : the piece which will be used for a move.  
+
+Since it is a void method, it does not return anything. 
+
+It creates column and row variables in it, and a piece, to set it in a new location. It arranges this with some for loops for all the squares, and if the squares equal to the targetLocation, it edits the squares with the row, the column, and the piece that is moved to this square. 
+
+16)public void removeSquare(Square location) 
+
+This method provides to make null the piece’s previous location. 
+
+Location: the string assignment of the square which is the piece is at. 
+
+Since it is a void method, it does not return anything. 
+
+It creates column and row variables in it, after this, with for loops, it checks all the squares on the board, and if a square is equal to the location parameter, makes its piece null. 
+
+17)public void promoteToQueen(int color, Square targetLocation) 
+
+It is used to promote a pawn to a queen. 
+
+Int color: the color value of the piece. ; Square targetLocation : the Location where the piece will turned into a queen. 
+
+Since it is a void method, it does not return anything. 
+
+For the first pawn, if the isAtLastRow condition is true, it gets a column and a row, after that with for loops, it checks all the squares, and if one of them is equal to the targetLocation, it sets that square’s rank as queen. 
+
+18)public boolean isGameEnded() 
+
+This provides to end the game under the condition. 
+
+It has no parameter. 
+
+It returns a boolean condition that if there is no piece from white or black. 
+
+At first, it creates two variables, as black and white, and then it checks for all squares if there are not null squares. It counts the pieces depending on their colors until one of them becomes zero. 
+
+19)public String toString() 
+
+This is provided to create the chess board, and replace the letters, pieces, empty quares etc. 
+
+It has no parameter 
+
+It returns the string which are equal to “-”, “|” and letters as piece symbols. 
+
+ 
+
+ 
+
+ 
+
+D) Main class uses the canMove() and move() methods which are the overridden ones from the super Piece class, these are being used for Piece’s subclasses, but since Main has no super class or subclass, they are imported from the Piece class. Piece is an abstract class, and the methods that Piece class owns both canMove() and move() methods are abstract methods. They are being used as overridden methods in the Piece’s subclasses. 
+
+ 
+
+E)  
+
+1)public boolean canMove(String destination, ChessBoard chessBoard) 
+
+This method checks if the piece can move under the appropriate conditions for its possible moves. 
+
+String destination: is the target of the piece. ; ChessBoard chessBoard : the chess board. 
+
+It returns the boolean validMove value, if the piece is about to attack, boolean dash value can be returned and equal to the validMove value. 
+
+This method exists in the super Piece class, but since Piece is an abstract class, this method is abstract too. The method is being used as overridden in the subclasses.  
+
+For Pawn: First, it checks if the location of the Pawn piece and the targetLocation are at the same column, under the condition that it is true, later on it checks the color of the piece, and the row distance between these two locations. After the proper conditions, it creates an array of the squares between them, and if these squares are empty as well as the target location, the returning of boolean validMove becomes implemented. Else if the pawn moves for attack, firstly it checks if the location of the pawn and the target location are neighbor columns. After checking this, it creates the color variable of the targetLocation’s piece. For enemy colors, while the row distance 1 or –1, validMove becomes equivalent to the dash variable, and after all of these it returns validMove. 
+
+For Knight: At the beginning, this method gets the column and row value’s both of the location and the targetLocation. Later, under the possible move conditions of the piece, it checks if the targetLocation is not empty, and if it is, if the color of the piece and the color of the targetLocation’s piece are not equal, it makes the dash value true for attack move. 
+
+ For Rook: If the location and the targetLocation are at the same column, or at the same row, it creates the array of the square between these two locations. After that, it checks all these squares if they are empty or not, under the condition that all of them are empty, it makes the move. If there is a square which is not empty, and if they are from the different colors, it makes the dash value true. Then end of the method, If it is dash, it returns dash, if it is not, it returns the validMove. 
+
+For Bishop: It gets the row and column value’s of the location and targetLocation. After that, it takes the column’s and row’s distances, if these distances are equal, the method gets the squares between these two locations. And checks all of the squares if they are empty or not. When all of them are empty, validMove becomes true. But if the targetLocation is not empty, it gets the color of the targetLocation’s piece, and checks if it is different from the bishop’s color, after that it makes the dash true. Then end of the method, If it is dash, it returns dash, if it is not, it returns the validMove. 
+
+For Queen: Same as described for the Bishop. Else if,  same as described for the Rook. 
+
+For King: At first, the method gets the row and column values of the targetLocation and location. And after this, it creates two new variables which are called distanceRow and distanceCol. These are being used in the if statement for King, if King provides the conditions for possible moves, after it checks if the targetLocation is not empty, then it gets the color of the targetLocation’s piece. If the targetLocation’s piece’s color and the King’s color are different, dash value becomes true, else it returns validMove.     
+
+ 
+
+2)public void move(String destination, ChessBoard chessBoard) 
+
+This method implements the move, that the piece can make. 
+
+String destination: is the target of the piece. ; ChessBoard chessBoard : the chess board. 
+
+Since it is a void method, it returns nothing. 
+
+This method exists in the super Piece class, but because Piece is an abstract class, this method is abstract too. For the subclasses of the Piece, it creates a targetLocation variable, and sets it as the destination through the getSquareAt method, after, it checks if it will be a move, an attack, or else (such as promoting to queen for the pawn class), later, it removes the previous square location of the piece, sets the targetLocation as the current location, then gives the turn to the next player. 
