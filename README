@@ -10,7 +10,7 @@ Each one of the 64 squares is created in the ChessBoard class. These consist of 
 
  
 
-C)There are several methods to be used in the Square and Board classes. 
+There are several methods to be used in the Square and Board classes. 
 
 1)public boolean isAtSameRow (Square targetLocation) 
 
@@ -220,11 +220,11 @@ It returns the string which are equal to “-”, “|” and letters as piece s
 
  
 
-D) Main class uses the canMove() and move() methods which are the overridden ones from the super Piece class, these are being used for Piece’s subclasses, but since Main has no super class or subclass, they are imported from the Piece class. Piece is an abstract class, and the methods that Piece class owns both canMove() and move() methods are abstract methods. They are being used as overridden methods in the Piece’s subclasses. 
+Main class uses the canMove() and move() methods which are the overridden ones from the super Piece class, these are being used for Piece’s subclasses, but since Main has no super class or subclass, they are imported from the Piece class. Piece is an abstract class, and the methods that Piece class owns both canMove() and move() methods are abstract methods. They are being used as overridden methods in the Piece’s subclasses. 
 
  
 
-E)  
+
 
 1)public boolean canMove(String destination, ChessBoard chessBoard) 
 
